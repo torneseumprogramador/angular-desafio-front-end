@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './sobre.component.scss'
 })
 export class SobreComponent {
-
+  constructor() {
+    console.log('SobreComponent has been loaded');
+  }
 }

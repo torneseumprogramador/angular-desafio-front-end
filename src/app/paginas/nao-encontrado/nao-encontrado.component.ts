@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './nao-encontrado.component.scss'
 })
 export class NaoEncontradoComponent {
-
+  constructor() {
+    console.log('NaoEncontradoComponent has been loaded');
+  }
 }
