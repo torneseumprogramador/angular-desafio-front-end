@@ -1,0 +1,36 @@
+<section class="container">
+    <h1>Lista de produtos</h1>
+    <hr>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Descrição</th>
+                <th>Data de Criação</th>
+                <th>Data de Modificação</th>
+                <th>Quantidade em Estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (produtos.length > 0) {
+                @for (produto of produtos; track produto.id) {
+                    <tr>
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.preco | currency:'BRL' }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        <td>{{ produto.data_criacao | date:'dd/MM/yyyy HH:mm' }}</td>
+                        <td>{{ produto.data_modificacao | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ produto.quantidade_estoque }}</td>
+                    </tr>
+                }
+            } @else {
+                <tr>
+                    <td colspan="7" class="text-center">Não existem produtos.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { BuscadorComponent } from '../../componentes/buscador/buscador.component';
-import { NavComponent } from '../../componentes/nav/nav.component';
 
 @Component({
   selector: 'app-home',

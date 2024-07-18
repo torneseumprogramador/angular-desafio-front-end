@@ -2,13 +2,16 @@
 <nav class="navbar navbar-light bg-light static-top">
     <ul class="container">
         <li>
-            <a routerLink="/" routerLinkActive="active" class="navbar-brand" >Start Bootstrap</a>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  class="navbar-brand" >Start Bootstrap</a>
         </li>
         <li>
-            <a routerLink="/sobre" routerLinkActive="active"  class="navbar-brand">Sobre</a>
+            <a routerLink="/produtos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Produtos</a>
         </li>
         <li>
-            <a routerLink="/login" routerLinkActive="active" class="btn btn-primary" >Login</a>
+            <a routerLink="/sobre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Sobre</a>
+        </li>
+        <li>
+            <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"class="btn btn-primary" >Login</a>
         </li>
     </ul>
 </nav>
