@@ -9,5 +9,7 @@ export const routes: Routes = [
   { path: 'sobre', component: SobreComponent },
   { path: 'login', component: LoginComponent },
   { path: 'produtos', loadComponent: () => import('./paginas/produtos/produtos.component').then(m => m.ProdutosComponent) },
+  { path: 'produtos/novo', loadComponent: () => import('./paginas/produtos/novo-produto/novo-produto.component').then(m => m.NovoProdutoComponent) },
+  { path: 'produtos/:id', loadComponent: () => import('./paginas/produtos/alterar-produto/alterar-produto.component').then(m => m.AlterarProdutoComponent) },
   { path: '**', component: NaoEncontradoComponent },
 ];

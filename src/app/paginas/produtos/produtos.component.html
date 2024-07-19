@@ -1,5 +1,10 @@
 <section class="container">
-    <h1>Lista de produtos</h1>
+    <div class="row" style="margin-top: 20px;">
+        <h1 class="col-11">Lista de produtos</h1>
+        <div class="col-1">
+            <a routerLink="/produtos/novo" class="btn btn-primary">Novo</a>
+        </div>
+    </div>
     <hr>
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -11,6 +16,7 @@
                 <th>Data de Criação</th>
                 <th>Data de Modificação</th>
                 <th>Quantidade em Estoque</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +30,12 @@
                         <td>{{ produto.data_criacao | date:'dd/MM/yyyy HH:mm' }}</td>
                         <td>{{ produto.data_modificacao | date:'dd/MM/yyyy' }}</td>
                         <td>{{ produto.quantidade_estoque }}</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a class="btn btn-warning" routerLink="/produtos/{{produto.id}}">Alterar</a>
+                                <button class="btn btn-danger" (click)="apagar(produto.id)">Apagar</button>
+                            </div>
+                        </td>
                     </tr>
                 }
             } @else {
