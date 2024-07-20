@@ -9,7 +9,7 @@ import { Produto } from '../models/produto';
 export class ProdutoService {
 
   private apiUrl = 'http://localhost:3001';
-  private token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzIxMzgzMjE1LCJleHAiOjE3MjE0Njk2MTV9.0rIkcXoDKUdDjbSTZ3kM0IX8fjp1GCeFVaV5TFC_n4c';
+  private token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzIxNDY5NjQ3LCJleHAiOjE3MjE1NTYwNDd9.ktymnHnv5xMgq7OqBd6QT8GX3Ba4ayk6CtKuvrv7NLo';
 
   constructor(private http: HttpClient) { }
 
@@ -35,14 +35,14 @@ export class ProdutoService {
     });
 
     try {
-      if(produto.id === 0){
-        await firstValueFrom(this.http.post(`${this.apiUrl}/produto`, produto, { headers }));
-      }
-      else{
+      if(produto.id){
         await firstValueFrom(this.http.put(`${this.apiUrl}/produto/${produto.id}`, produto, { headers }));
       }
+      else{
+        await firstValueFrom(this.http.post(`${this.apiUrl}/produto`, produto, { headers }));
+      }
     } catch (error) {
-      console.error('Erro ao buscar produtos', error);
+      console.error('Erro ao salvar produto', error);
       throw error;
     }
   }
@@ -56,7 +56,7 @@ export class ProdutoService {
     try {
       return await firstValueFrom(this.http.get<Produto>(`${this.apiUrl}/produto/${produtoId}`, { headers }));
     } catch (error) {
-      console.error('Erro ao buscar produtos', error);
+      console.error('Erro ao buscar produtos por id', error);
       throw error;
     }
   }
@@ -70,7 +70,7 @@ export class ProdutoService {
     try {
       await firstValueFrom(this.http.delete(`${this.apiUrl}/produto/${produtoId}`, { headers }));
     } catch (error) {
-      console.error('Erro ao buscar produtos', error);
+      console.error('Erro ao apagar produto', error);
       throw error;
     }
   }
