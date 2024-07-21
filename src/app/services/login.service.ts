@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import env from '../config/env';
 import { Login } from '../models/login';
 import { firstValueFrom } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
+import { inject, PLATFORM_ID } from '@angular/core';
 
 const KEY_LOGIN: string = "DesafioFrontAngularLoginToken"
 
@@ -43,7 +45,10 @@ export class LoginService {
   }
 
   static getToken(): string {
-    const itemStr = localStorage.getItem(KEY_LOGIN);
+    const platformId = inject(PLATFORM_ID);
+    if(!isPlatformBrowser(platformId)) return "";
+
+    const itemStr = window.localStorage.getItem(KEY_LOGIN);
     if (!itemStr) {
       return "";
     }
@@ -60,7 +65,7 @@ export class LoginService {
   }
 
   static clearLocalStorage() {
-    localStorage.removeItem(KEY_LOGIN);
+    window.localStorage.removeItem(KEY_LOGIN);
   }
 
   static tokenValido(): boolean {
