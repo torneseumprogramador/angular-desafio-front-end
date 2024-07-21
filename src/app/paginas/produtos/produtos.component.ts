@@ -3,6 +3,7 @@ import { ProdutoService } from '../../services/produto.service';
 import { Produto } from '../../models/produto';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { NavComponent } from '../../componentes/nav/nav.component';
 
 @Component({
   selector: 'app-produtos',
@@ -10,7 +11,8 @@ import { RouterLink } from '@angular/router';
   imports: [
     CurrencyPipe,
     DatePipe,
-    RouterLink
+    RouterLink,
+    NavComponent
   ],
   templateUrl: './produtos.component.html',
   styleUrl: './produtos.component.scss'

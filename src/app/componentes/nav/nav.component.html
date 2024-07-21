@@ -2,7 +2,7 @@
 <nav class="navbar navbar-light bg-light static-top">
     <ul class="container">
         <li>
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  class="navbar-brand" >Start Bootstrap</a>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  class="navbar-brand" >Desafio Front</a>
         </li>
         <li>
             <a routerLink="/produtos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Produtos</a>
@@ -11,7 +11,7 @@
             <a routerLink="/sobre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Sobre</a>
         </li>
         <li>
-            <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"class="btn btn-primary" >Login</a>
+            <a href="javascript:void(0)" (click)="sair()" >Sair</a>
         </li>
     </ul>
 </nav>

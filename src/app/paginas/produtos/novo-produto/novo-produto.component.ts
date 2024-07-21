@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Produto } from '../../../models/produto';
 import { ProdutoService } from '../../../services/produto.service';
 import { FormProdutoComponent } from '../form-produto/form-produto.component';
+import { NavComponent } from '../../../componentes/nav/nav.component';
 
 @Component({
   selector: 'app-novo-produto',
@@ -11,7 +12,8 @@ import { FormProdutoComponent } from '../form-produto/form-produto.component';
   imports: [
     RouterLink,
     CommonModule,
-    FormProdutoComponent
+    FormProdutoComponent,
+    NavComponent
   ],
   templateUrl: './novo-produto.component.html',
   styleUrls: ['./novo-produto.component.scss']

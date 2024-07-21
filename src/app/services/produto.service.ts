@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Produto } from '../models/produto';
+import env from '../config/env';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
 
-  private apiUrl = 'http://localhost:3001';
-  private token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzIxNDY5NjQ3LCJleHAiOjE3MjE1NTYwNDd9.ktymnHnv5xMgq7OqBd6QT8GX3Ba4ayk6CtKuvrv7NLo';
+  private apiUrl = env.host;
+  private token = LoginService.getToken();
 
   constructor(private http: HttpClient) { }
 

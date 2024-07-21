@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavComponent } from './componentes/nav/nav.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 
 @Component({
@@ -8,7 +7,6 @@ import { FooterComponent } from './componentes/footer/footer.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    NavComponent,
     FooterComponent
   ],
   templateUrl: './app.component.html',
