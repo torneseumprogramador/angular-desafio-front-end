@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SobreComponent } from './sobre.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('SobreComponent', () => {
   let component: SobreComponent;
@@ -8,7 +8,10 @@ describe('SobreComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SobreComponent]
+      imports: [SobreComponent],
+      providers: [
+        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: { get: () => 'test-id' } } } }
+      ]
     })
     .compileComponents();
 
@@ -19,5 +22,14 @@ describe('SobreComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Quantidade de section', () => {
+    const fixture = TestBed.createComponent(SobreComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    let sections = compiled.querySelectorAll('section');
+    expect(sections.length).toBe(2);
   });
 });

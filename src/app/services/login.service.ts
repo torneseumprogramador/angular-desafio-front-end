@@ -44,9 +44,11 @@ export class LoginService {
     localStorage.setItem(KEY_LOGIN, JSON.stringify(item));
   }
 
-  static getToken(): string {
-    const platformId = inject(PLATFORM_ID);
-    if(!isPlatformBrowser(platformId)) return "";
+  static getToken(runProdDev: boolean = true): string {
+    if(runProdDev){ // neste cenário estou rodando em modo dev ou prod
+      const platformId = inject(PLATFORM_ID);
+      if(!isPlatformBrowser(platformId)) return "";
+    }
 
     const itemStr = window.localStorage.getItem(KEY_LOGIN);
     if (!itemStr) {
@@ -68,8 +70,8 @@ export class LoginService {
     window.localStorage.removeItem(KEY_LOGIN);
   }
 
-  static tokenValido(): boolean {
-    const token: string = LoginService.getToken();
+  static tokenValido(runProdDev: boolean = true): boolean {
+    const token: string = LoginService.getToken(runProdDev);
     return token ? true : false;
   }
 }
