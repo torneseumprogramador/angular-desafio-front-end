@@ -12,6 +12,4 @@ import { FooterComponent } from './componentes/footer/footer.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'angular-desafio-front-end';
-}
+export class AppComponent { }

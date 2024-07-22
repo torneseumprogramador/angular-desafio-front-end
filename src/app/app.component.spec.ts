@@ -8,22 +8,27 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('Deveria criar a instancia do AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-desafio-front-end' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-desafio-front-end');
-  });
-
-  it('should render title', () => {
+  it('Deveria ter o app-footer incluido', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-desafio-front-end');
+
+    let app_footer = compiled.querySelector('app-footer');
+    expect(app_footer).not.toBeNull();
+  });
+
+  it('Deveria ter o router-outlet incluido', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    let app_footer = compiled.querySelector('router-outlet');
+    expect(app_footer).not.toBeNull();
   });
 });
